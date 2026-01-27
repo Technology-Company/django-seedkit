@@ -1,7 +1,5 @@
 """Tests for seedkit.config module."""
 
-import pytest
-
 
 class TestGetConfig:
     """Tests for get_config function."""

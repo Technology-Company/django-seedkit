@@ -3,8 +3,6 @@
 from pathlib import Path
 from unittest.mock import MagicMock, patch
 
-import pytest
-
 
 class TestDiscoverSeedFiles:
     """Tests for discover_seed_files function."""
