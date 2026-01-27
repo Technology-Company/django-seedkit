@@ -1,0 +1,82 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "django-seedkit"
+version = "0.1.0"
+description = "Minimal test data seeding for Django — plain Python, no magic."
+readme = "README.md"
+license = "MIT"
+requires-python = ">=3.10"
+authors = [
+    { name = "Johanna" },
+]
+keywords = [
+    "django",
+    "seed",
+    "test-data",
+    "fixtures",
+    "populate",
+    "development",
+]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Environment :: Web Environment",
+    "Framework :: Django",
+    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.0",
+    "Framework :: Django :: 5.1",
+    "Intended Audience :: Developers",
+    "License :: OSI Approved :: MIT License",
+    "Operating System :: OS Independent",
+    "Programming Language :: Python :: 3",
+    "Programming Language :: Python :: 3.10",
+    "Programming Language :: Python :: 3.11",
+    "Programming Language :: Python :: 3.12",
+    "Programming Language :: Python :: 3.13",
+    "Topic :: Software Development :: Testing",
+]
+dependencies = [
+    "django>=4.2",
+]
+
+[project.optional-dependencies]
+dev = [
+    "pytest>=8.0",
+    "pytest-django>=4.5",
+    "pytest-cov>=4.0",
+    "ruff>=0.4",
+]
+
+[project.urls]
+Homepage = "https://github.com/johannasjo/django-seedkit"
+Documentation = "https://github.com/johannasjo/django-seedkit#readme"
+Repository = "https://github.com/johannasjo/django-seedkit"
+Issues = "https://github.com/johannasjo/django-seedkit/issues"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/seedkit"]
+
+[tool.pytest.ini_options]
+DJANGO_SETTINGS_MODULE = "tests.settings"
+pythonpath = ["src", "."]
+testpaths = ["tests"]
+
+[tool.ruff]
+line-length = 100
+target-version = "py310"
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B", "SIM"]
+ignore = ["E501"]
+
+[tool.coverage.run]
+source = ["src/seedkit"]
+branch = true
+
+[tool.coverage.report]
+exclude_lines = [
+    "pragma: no cover",
+    "if TYPE_CHECKING:",
+]
