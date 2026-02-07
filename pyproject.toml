@@ -50,10 +50,10 @@ dev = [
 ]
 
 [project.urls]
-Homepage = "https://github.com/johannasjo/django-seedkit"
-Documentation = "https://github.com/johannasjo/django-seedkit#readme"
-Repository = "https://github.com/johannasjo/django-seedkit"
-Issues = "https://github.com/johannasjo/django-seedkit/issues"
+Homepage = "https://github.com/Technology-Company/django-seedkit"
+Documentation = "https://github.com/Technology-Company/django-seedkit#readme"
+Repository = "https://github.com/Technology-Company/django-seedkit"
+Issues = "https://github.com/Technology-Company/django-seedkit/issues"
 
 [tool.hatch.build.targets.wheel]
 packages = ["src/seedkit"]

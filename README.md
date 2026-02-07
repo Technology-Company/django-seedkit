@@ -1,5 +1,11 @@
 # django-seedkit
 
+[![PyPI Version](https://badgen.net/pypi/v/django-seedkit)](https://pypi.org/project/django-seedkit/)
+[![Python Versions](https://badgen.net/pypi/python/django-seedkit)](https://pypi.org/project/django-seedkit/)
+[![Django Versions](https://badgen.net/badge/django/4.2%20%7C%205.0%20%7C%205.1/0C4B33)](https://pypi.org/project/django-seedkit/)
+[![License](https://badgen.net/pypi/license/django-seedkit)](https://github.com/Technology-Company/django-seedkit/blob/main/LICENSE)
+[![Tests](https://github.com/Technology-Company/django-seedkit/actions/workflows/tests.yml/badge.svg)](https://github.com/Technology-Company/django-seedkit/actions/workflows/tests.yml)
+
 Minimal test data seeding for Django — plain Python, no magic.
 
 **Auto-discovery • Idempotent • Atomic transactions • Zero configuration**

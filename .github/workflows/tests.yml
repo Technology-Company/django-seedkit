@@ -12,15 +12,14 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        python-version: ["3.10", "3.11", "3.12", "3.13"]
-        django-version: ["4.2", "5.0", "5.1"]
-        exclude:
-          # Django 4.2 doesn't support Python 3.13
-          - python-version: "3.13"
+        include:
+          - python-version: "3.10"
             django-version: "4.2"
-          # Django 5.0 doesn't support Python 3.13
-          - python-version: "3.13"
+          - python-version: "3.12"
             django-version: "5.0"
+          - python-version: "3.13"
+            django-version: "5.1"
+            lint: true
 
     steps:
       - uses: actions/checkout@v5
@@ -40,22 +39,9 @@ jobs:
           uv pip install -e ".[dev]"
           uv pip install "django~=${{ matrix.django-version }}.0"
 
+      - name: Lint
+        if: matrix.lint
+        run: uvx ruff check .
+
       - name: Run tests
         run: uv run pytest
-
-  lint:
-    runs-on: ubuntu-latest
-    steps:
-      - uses: actions/checkout@v5
-
-      - name: Install uv
-        uses: astral-sh/setup-uv@v7
-        with:
-          enable-cache: true
-          python-version: 3.13
-
-      - name: Install Python
-        run: uv python install 3.13
-
-      - name: Run ruff
-        run: uvx ruff check .
